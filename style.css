@@ -7,10 +7,7 @@ body {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    position: relative;
     background-color: #fae1dd;
 }
 
@@ -34,22 +31,19 @@ body {
 .envelope {
     position: relative;
     width: 300px;
-    height: 300px;
+    height: 200px;
     background-color: #f08080;
-    top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%); 
 }
 
-
 .envelope:before {
+    background-color: #f08080;;
     content: "";
     position: absolute;
     width: 212px;
     height: 212px;
     transform: rotate(45deg);
-    top: -105px;
-    left: 44px;
+    top:-105px;
+    left:44px;
     border-radius: 30px 0 0 0;
 }
 
@@ -66,10 +60,12 @@ body {
 .card:before {
     content: "";
     position: absolute;
+    border: 3px solid #003049;
     border-style: dotted;
     width: 240px;
     height: 140px;
     top: 12px;
+    left: 12px;
 }
 
 .text {
@@ -95,8 +91,7 @@ body {
     width: 30px;
 }
 
-.heart:before,
-.heart:after {
+.heart:before,.heart:after {
     content: "";
     background-color: #d62828;
     border-radius: 50%;
@@ -162,8 +157,20 @@ body {
     width: 10px;
     height: 10px;
     position: absolute;
-    left: 5px;
-    top: 0;
+    
+}
+.one:before, .two:before, .three:before , .four:before , 
+.five:before{
+    top:-5px;
+    left:0;
+
+}
+.one:after, .two:after , .three:after , .four:after , 
+.five:after{
+    left:5px;
+    top:0;
+
+
 }
 
 .one {
@@ -188,19 +195,20 @@ body {
 
 .five {
     left: 90px;
-    animation: heart 1s ease-out infinite;
+    animation: heart 1.7s ease-out infinite;
 }
 
 .front {
     position: absolute;
-    border-right: solid #f4978e;
-    border-top: 95px solid transparent;
-    border-bottom: 100px solid transparent;
+    border-right: 180px solid #f4978e;
+    border-top:95px solid transparent;
+    border-bottom:100px solid transparent;
     left: 120px;
     top: 5px;
-    width: 0;
-    height: 0;
-    z-index: 10px;
+    width:0;
+    height:0;
+    z-index:10;
+    
 }
 
 .front:before {
@@ -214,20 +222,24 @@ body {
     height: 0;
 }
 
+
+@keyframes shadow-scale {
+    0%, 100% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(0.85);
+    }
+}
+
 .shadow {
     position: absolute;
     width: 330px;
     height: 25px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.3);
-    top: 265px;
-    left: -15px;
+    background-color: rgba(0, 0, 0, 0.03);
+    top: 290px;
+    left: 35%;
     z-index: -1;
-    animation: scale 3s linear infinite;
-}
-
-@keyframes scale {
-    0%, 100% {
-        transform: scaleX(1);
-    }
+    animation: shadow-scale 3s linear infinite; 
 }
